@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo</title>
+   
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div>
+        <h1 style="text-align:center;font-size: 60px;color: rgb(192, 19, 183); text-shadow: 5px 6px white;">Ludo</h1>
+    </div>
+   <div class="player-box">
+        <div class="player-name"> Player 1</div>
+        <div class="player-name"> Player 2</div>
+    </div>
+    <div class="center"> 
+        <button onclick="ludogame()" style="height:30px;width:90px;border-radius: 10px">Click me</button>
+    </div>
+    <div class="image-box">
+        <div class="box">
+            <img src="images/dice1.png" alt="dice1" id="check1">
+        </div>
+        <div class="box">
+            <img src="images/dice2.png" alt="dice1" id="check2">
+        </div>
+    </div>
+    <div class="result-box">
+         <h2 style="font-size: 80px; color: yellow;text-shadow: 5px 6px white;">Welcome</h1>
+    </div>
+
+    <script>
+    ludogame = () => {
+
+    const player1 = Math.floor(Math.random() * 6) + 1; 
+
+    const player1dice = `images/dice${player1}.png`;
+
+    document.getElementById('check1').setAttribute('src',player1dice);
+
+
+    const player2 = Math.floor(Math.random() * 6) + 1; 
+
+    const player2dice = `images/dice${player2}.png`;
+
+    document.getElementById('check2').setAttribute('src',player2dice);
+
+    if(player1 > player2) {
+        document.querySelector('h2').innerHTML = "Player 1 won";
+    }else if(player1 < player2){
+        document.querySelector('h2').innerHTML = "Player 2 won";
+    }else{
+        document.querySelector('h2').innerHTML = "Draw";
+    }
+
+
+
+
+    }
+    </script>
+
+</body>
+</html>
